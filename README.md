@@ -1,7 +1,6 @@
-# Modular-Inventory-Part-10
+# Modular-Inventory-Part-11
 
-Part 10 of the inventory tutorial series.
-- Add action menu on items
-- Process of adding features.
+Part 11 of the inventory tutorial series.
+- Refactored the code to split the data from the UI.
 
-Video: https://youtu.be/FShrOoV26wk
+Video: https://youtu.be/D9eptxvPH7c
