@@ -1,15 +1,31 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://troll.tscn" type="PackedScene" id=2]
-[ext_resource path="res://interactables/floor_item.tscn" type="PackedScene" id=3]
-[ext_resource path="res://interactables/interactable_chest.tscn" type="PackedScene" id=4]
-[ext_resource path="res://interactables/random_chest.tscn" type="PackedScene" id=5]
-[ext_resource path="res://interactables/treasure_chest.tscn" type="PackedScene" id=6]
-[ext_resource path="res://items/sprites/gold_coin.png" type="Texture" id=7]
-[ext_resource path="res://items/sprites/wood.png" type="Texture" id=8]
-[ext_resource path="res://items/sprites/rock.png" type="Texture" id=9]
-[ext_resource path="res://interactables/crafting_table.tscn" type="PackedScene" id=10]
+[ext_resource path="res://inventory_system/scenes/interactables/floor_item.tscn" type="PackedScene" id=3]
+[ext_resource path="res://inventory_system/scenes/interactables/interactable_chest.tscn" type="PackedScene" id=4]
+[ext_resource path="res://inventory_system/scenes/interactables/random_chest.tscn" type="PackedScene" id=5]
+[ext_resource path="res://inventory_system/scenes/interactables/treasure_chest.tscn" type="PackedScene" id=6]
+[ext_resource path="res://inventory_system/resources/sprites/items/gold_coin.png" type="Texture" id=7]
+[ext_resource path="res://inventory_system/resources/sprites/items/wood.png" type="Texture" id=8]
+[ext_resource path="res://inventory_system/resources/sprites/items/rock.png" type="Texture" id=9]
+[ext_resource path="res://inventory_system/scenes/interactables/crafting_table.tscn" type="PackedScene" id=10]
+[ext_resource path="res://inventory_system/scripts/resources/inventory.gd" type="Script" id=11]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 11 )
+name = "Chest"
+size = 10
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 11 )
+name = "Random Chest"
+size = 5
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 11 )
+name = "Treasure Chest"
+size = 5
 
 [node name="Dungeon" type="Node2D"]
 
@@ -45,19 +61,19 @@ item_id = "helmet"
 
 [node name="chest" parent="Walls" instance=ExtResource( 4 )]
 position = Vector2( 442, 219 )
-size = 15
-inventory_name = "Normal Chest"
-items = [ "magic_orb", "wood", "stone_brick", "small_healing_potion", "small_healing_potion", "small_healing_potion", "big_healing_potion", "rarity_upgrade", "rarity_upgrade", "rarity_upgrade", "rarity_upgrade", "big_healing_potion", "big_healing_potion", "big_healing_potion", "big_healing_potion" ]
+loot_table = [ "chestplate", "wooden_sword", "gold_coin", "rock", "rarity_upgrade", "rarity_upgrade", "rarity_upgrade" ]
+inventory = SubResource( 1 )
 
 [node name="chest2" parent="Walls" instance=ExtResource( 5 )]
 position = Vector2( 539, 268 )
-size = 10
-inventory_name = "Random Cool Chest"
-items = [ "crystal", "crystal", "gold_coin", "stone_brick", "crystal", "magic_orb", "shield", "stone_brick", "stone_brick", "wooden_sword" ]
+loot_table = [ "gold_coin", "crystal", "wood" ]
+inventory = SubResource( 2 )
 number_of_items = 10
 
 [node name="treasure_chest" parent="Walls" instance=ExtResource( 6 )]
 position = Vector2( 1663, 16 )
+loot_table = [ "helmet", "tshirt", "chestplate", "iron_sword", "shield", "magic_orb" ]
+inventory = SubResource( 3 )
 
 [node name="crafting table wood" parent="Walls" instance=ExtResource( 10 )]
 position = Vector2( 320, -82 )

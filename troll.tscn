@@ -2,10 +2,11 @@
 
 [ext_resource path="res://troll.gd" type="Script" id=1]
 [ext_resource path="res://troll.png" type="Texture" id=2]
-[ext_resource path="res://interactables/interactable_labels.gd" type="Script" id=3]
-[ext_resource path="res://font/font_14.tres" type="DynamicFont" id=4]
-[ext_resource path="res://font/font_12.tres" type="DynamicFont" id=5]
-[ext_resource path="res://data/resources/player_data.tres" type="Resource" id=6]
+[ext_resource path="res://inventory_system/scripts/interactables/interactable_labels.gd" type="Script" id=3]
+[ext_resource path="res://inventory_system/resources/font/font_14.tres" type="DynamicFont" id=4]
+[ext_resource path="res://inventory_system/resources/font/font_12.tres" type="DynamicFont" id=5]
+[ext_resource path="res://inventory_system/data/resources/player_data.tres" type="Resource" id=6]
+
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 16.0

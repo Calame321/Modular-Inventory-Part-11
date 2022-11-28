@@ -12,157 +12,197 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "Affix",
 "language": "GDScript",
-"path": "res://items/affix.gd"
+"path": "res://inventory_system/scripts/resources/item/affix.gd"
 }, {
 "base": "Resource",
 "class": "Affix_Group",
 "language": "GDScript",
-"path": "res://items/affix_group.gd"
+"path": "res://inventory_system/scripts/resources/item/affix_group.gd"
 }, {
 "base": "Resource",
 "class": "Affix_Item",
 "language": "GDScript",
-"path": "res://items/affix_item.gd"
+"path": "res://inventory_system/scripts/resources/item/affix_item.gd"
 }, {
 "base": "Resource",
 "class": "Affix_Item_List",
 "language": "GDScript",
-"path": "res://items/affix_item_list.gd"
+"path": "res://inventory_system/scripts/resources/item/affix_item_list.gd"
 }, {
 "base": "Resource",
 "class": "Base_stat",
 "language": "GDScript",
-"path": "res://items/base_stat.gd"
+"path": "res://inventory_system/scripts/resources/item/base_stat.gd"
 }, {
 "base": "Area2D",
 "class": "Chest",
 "language": "GDScript",
-"path": "res://interactables/interactable_chest.gd"
+"path": "res://inventory_system/scripts/interactables/interactable_chest.gd"
 }, {
 "base": "Scale_Control",
 "class": "Dragable_Control",
 "language": "GDScript",
-"path": "res://ui/dragable_control.gd"
+"path": "res://inventory_system/scripts/ui/dragable_control.gd"
+}, {
+"base": "Inventory",
+"class": "Equipment",
+"language": "GDScript",
+"path": "res://inventory_system/scripts/resources/equipment.gd"
+}, {
+"base": "Inventory_Node",
+"class": "Equipment_Node",
+"language": "GDScript",
+"path": "res://inventory_system/scripts/inventory/equipment_node.gd"
 }, {
 "base": "Inventory_Slot",
 "class": "Equipment_Slot",
 "language": "GDScript",
-"path": "res://ui/equipment_slot.gd"
+"path": "res://inventory_system/scripts/resources/equipment_slot.gd"
+}, {
+"base": "Inventory_Slot_Node",
+"class": "Equipment_Slot_Node",
+"language": "GDScript",
+"path": "res://inventory_system/scripts/inventory/equipment_slot_node.gd"
 }, {
 "base": "Resource",
 "class": "Game_Data",
 "language": "GDScript",
-"path": "res://data/game_data.gd"
+"path": "res://inventory_system/data/game_data.gd"
 }, {
 "base": "Reference",
 "class": "Game_Enums",
 "language": "GDScript",
-"path": "res://managers/game_enums.gd"
+"path": "res://inventory_system/managers/game_enums.gd"
 }, {
-"base": "Scale_Control",
+"base": "Inventory",
 "class": "Hotbar",
 "language": "GDScript",
-"path": "res://ui/hotbar.gd"
+"path": "res://inventory_system/scripts/resources/hotbar.gd"
+}, {
+"base": "Scale_Control",
+"class": "Hotbar_Node",
+"language": "GDScript",
+"path": "res://inventory_system/scripts/inventory/hotbar_node.gd"
 }, {
 "base": "Inventory_Slot",
 "class": "Hotbar_Slot",
 "language": "GDScript",
-"path": "res://inventory/hotbar_slot.gd"
+"path": "res://inventory_system/scripts/resources/hotbar_slot.gd"
+}, {
+"base": "Inventory_Slot_Node",
+"class": "Hotbar_Slot_Node",
+"language": "GDScript",
+"path": "res://inventory_system/scripts/inventory/hotbar_slot_node.gd"
 }, {
 "base": "PanelContainer",
 "class": "InnerPanel",
 "language": "GDScript",
-"path": "res://ui/inner_panel.gd"
+"path": "res://inventory_system/scripts/ui/inner_panel.gd"
 }, {
-"base": "InnerPanel",
+"base": "Resource",
 "class": "Inventory",
 "language": "GDScript",
-"path": "res://inventory/inventory.gd"
+"path": "res://inventory_system/scripts/resources/inventory.gd"
 }, {
-"base": "TextureRect",
+"base": "InnerPanel",
+"class": "Inventory_Node",
+"language": "GDScript",
+"path": "res://inventory_system/scripts/inventory/inventory_node.gd"
+}, {
+"base": "Resource",
 "class": "Inventory_Slot",
 "language": "GDScript",
-"path": "res://inventory/inventory_slot.gd"
+"path": "res://inventory_system/scripts/resources/inventory_slot.gd"
 }, {
 "base": "TextureRect",
+"class": "Inventory_Slot_Node",
+"language": "GDScript",
+"path": "res://inventory_system/scripts/inventory/inventory_slot_node.gd"
+}, {
+"base": "Resource",
 "class": "Item",
 "language": "GDScript",
-"path": "res://items/item.gd"
+"path": "res://inventory_system/scripts/resources/item/item.gd"
 }, {
 "base": "Resource",
 "class": "Item_Affix_List",
 "language": "GDScript",
-"path": "res://items/item_affix_list.gd"
+"path": "res://inventory_system/scripts/resources/item/item_affix_list.gd"
 }, {
 "base": "Item_Usable",
 "class": "Item_Healing",
 "language": "GDScript",
-"path": "res://items/usable/item_healing.gd"
+"path": "res://inventory_system/scripts/resources/usable_items/item_healing.gd"
 }, {
 "base": "Scale_Control",
 "class": "Item_Info",
 "language": "GDScript",
-"path": "res://items/item_info.gd"
+"path": "res://inventory_system/scripts/ui/item_info.gd"
 }, {
 "base": "Label",
 "class": "Item_Info_Line",
 "language": "GDScript",
-"path": "res://ui/item_stat_line.gd"
+"path": "res://inventory_system/scripts/ui/item_stat_line.gd"
+}, {
+"base": "TextureRect",
+"class": "Item_Node",
+"language": "GDScript",
+"path": "res://inventory_system/scripts/inventory/item_node.gd"
 }, {
 "base": "Resource",
 "class": "Item_Unique_Stats",
 "language": "GDScript",
-"path": "res://items/item_unique_stats.gd"
+"path": "res://inventory_system/scripts/resources/item/item_unique_stats.gd"
 }, {
 "base": "Item_Usable",
 "class": "Item_Upgrade",
 "language": "GDScript",
-"path": "res://items/usable/item_upgrade.gd"
+"path": "res://inventory_system/scripts/resources/usable_items/item_upgrade.gd"
 }, {
-"base": "Node",
+"base": "Resource",
 "class": "Item_Usable",
 "language": "GDScript",
-"path": "res://items/item_usable.gd"
+"path": "res://inventory_system/scripts/resources/usable_items/item_usable.gd"
 }, {
 "base": "Resource",
 "class": "Player_Data",
 "language": "GDScript",
-"path": "res://data/player_data.gd"
+"path": "res://inventory_system/data/player_data.gd"
 }, {
 "base": "Node",
 "class": "Resource_Manager",
 "language": "GDScript",
-"path": "res://managers/resource_manager.gd"
+"path": "res://inventory_system/managers/resource_manager.gd"
 }, {
 "base": "Control",
 "class": "Scale_Control",
 "language": "GDScript",
-"path": "res://ui/scale_control.gd"
+"path": "res://inventory_system/scripts/ui/scale_control.gd"
 }, {
 "base": "Resource",
 "class": "Settings_Data",
 "language": "GDScript",
-"path": "res://data/settings_data.gd"
+"path": "res://inventory_system/data/settings_data.gd"
 }, {
 "base": "Scale_Control",
 "class": "Split_Stack",
 "language": "GDScript",
-"path": "res://ui/split_stack.gd"
+"path": "res://inventory_system/scripts/ui/split_stack.gd"
 }, {
 "base": "Resource",
 "class": "Stat_Range",
 "language": "GDScript",
-"path": "res://items/stat_range.gd"
+"path": "res://inventory_system/scripts/resources/item/stat_range.gd"
 }, {
 "base": "Resource",
 "class": "Stat_Scale",
 "language": "GDScript",
-"path": "res://items/stat_scale.gd"
+"path": "res://inventory_system/scripts/resources/item/stat_scale.gd"
 }, {
 "base": "Dragable_Control",
 "class": "Window",
 "language": "GDScript",
-"path": "res://ui/window.gd"
+"path": "res://inventory_system/scripts/ui/window.gd"
 } ]
 _global_script_class_icons={
 "Affix": "",
@@ -172,19 +212,27 @@ _global_script_class_icons={
 "Base_stat": "",
 "Chest": "",
 "Dragable_Control": "",
+"Equipment": "",
+"Equipment_Node": "",
 "Equipment_Slot": "",
+"Equipment_Slot_Node": "",
 "Game_Data": "",
 "Game_Enums": "",
 "Hotbar": "",
+"Hotbar_Node": "",
 "Hotbar_Slot": "",
+"Hotbar_Slot_Node": "",
 "InnerPanel": "",
 "Inventory": "",
+"Inventory_Node": "",
 "Inventory_Slot": "",
+"Inventory_Slot_Node": "",
 "Item": "",
 "Item_Affix_List": "",
 "Item_Healing": "",
 "Item_Info": "",
 "Item_Info_Line": "",
+"Item_Node": "",
 "Item_Unique_Stats": "",
 "Item_Upgrade": "",
 "Item_Usable": "",
@@ -200,19 +248,20 @@ _global_script_class_icons={
 
 [application]
 
-config/name=" Modular Inventory Part 10"
-config/description="Added item action menu."
+config/name=" Modular Inventory Part 11"
+config/description="The Refactor!"
 run/main_scene="res://scenes/main.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-ItemManager="*res://managers/item_manager.gd"
-ResourceManager="*res://managers/resource_manager.gd"
-SettingsManager="*res://managers/settings_manager.gd"
-SignalManager="*res://managers/signal_manager.gd"
-InventoryManager="*res://managers/inventory_manager.tscn"
-SaveManager="*res://managers/save_manager.gd"
+ItemManager="*res://inventory_system/managers/item_manager.gd"
+ResourceManager="*res://inventory_system/managers/resource_manager.gd"
+SettingsManager="*res://inventory_system/managers/settings_manager.gd"
+SignalManager="*res://inventory_system/managers/signal_manager.gd"
+InventoryManager="*res://inventory_system/managers/inventory_manager.tscn"
+SaveManager="*res://inventory_system/managers/save_manager.gd"
+CooldownManager="*res://inventory_system/managers/cooldown_manager.gd"
 
 [debug]
 
