@@ -1,11 +1,22 @@
 class_name Hotbar_Slot extends Inventory_Slot
 
+signal slot_select_changed()
+signal slot_selected( slot )
+
 var key : String
+var selected : bool = false setget set_selected
 
 func _init( i, inv_name ).( i, inv_name ):
 	key = str( i + 1 )
 	can_drop = false
 	can_split = false
+
+func set_selected( value ):
+	selected = value
+	emit_signal( "slot_select_changed" )
+	
+	if selected:
+		emit_signal( "slot_selected", self )
 
 # Dosen't look if the item is stackable.
 func try_put_item( new_item : Item ) -> bool:

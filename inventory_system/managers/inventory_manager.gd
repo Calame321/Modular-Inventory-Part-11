@@ -13,12 +13,14 @@ export( Resource ) var player_data
 var inventory_groups : Dictionary = {}
 var item_offset = Vector2.ZERO
 var is_shop_open = false
+var hotbar
 
 ## Built-in ##
 func _ready():
 	add_inventory( player_data.equipment )
 	add_inventory( player_data.inventory_left )
 	add_inventory( player_data.inventory_right )
+	hotbar = player_data.hotbar
 	
 	split_stack.connect( "stack_splitted", self, "_on_stack_splitted" )
 	item_void.connect( "gui_input", self, "_on_void_gui_input" )
@@ -27,6 +29,9 @@ func _ready():
 func _input( event : InputEvent ):
 	if event is InputEventMouseMotion and item_in_hand_node.item:
 		item_in_hand_node.rect_position = ( event.position - item_offset )
+	
+	if event.is_action_pressed( "use_item" ):
+		hotbar.use_selected_item()
 
 ## Functions ##
 

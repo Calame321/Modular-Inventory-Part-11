@@ -1,7 +1,38 @@
 class_name Hotbar extends Inventory
 
+var selected_slot : Hotbar_Slot
+
 func get_new_slot( s ):
-	return Hotbar_Slot.new( s, self )
+	var slot = Hotbar_Slot.new( s, self )
+	slot.connect( "slot_selected", self, "_on_slot_selected" )
+	return slot
+
+func use_selected_item():
+	if selected_slot and selected_slot.item and selected_slot.item.components.has( "usable" ):
+		print( "Used hotbar slot: ", selected_slot.key )
+		selected_slot.item.components.usable.use()
+
+func select_next():
+	print("select next")
+	for s in range( slots.size() ):
+		if slots[ s ].selected:
+			var total = slots.size()
+			var next = ( s + 1 ) % slots.size()
+			slots[ next ].selected = true
+			break
+
+func select_previous():
+	for s in range( slots.size() ):
+		if slots[ s ].selected:
+			slots[ ( s + slots.size() - 1 ) % slots.size() ].selected = true
+			break
+
+func _on_slot_selected( slot ):
+	selected_slot = slot
+	
+	for s in slots:
+		if s != slot:
+			s.selected = false
 
 # Pack the data of the referenced item so the link is preserved on load.
 # If the original item is lost, save the item itself.
