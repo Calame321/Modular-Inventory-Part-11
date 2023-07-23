@@ -1,5 +1,7 @@
 class_name Hotbar extends Inventory
 
+signal selected_item_changed( item )
+
 var selected_slot : Hotbar_Slot
 
 func get_new_slot( s ):
@@ -29,6 +31,7 @@ func select_previous():
 
 func _on_slot_selected( slot ):
 	selected_slot = slot
+	emit_signal( "selected_item_changed", slot.item )
 	
 	for s in slots:
 		if s != slot:

@@ -7,7 +7,6 @@
 [ext_resource path="res://inventory_system/resources/font/font_12.tres" type="DynamicFont" id=5]
 [ext_resource path="res://inventory_system/data/resources/player_data.tres" type="Resource" id=6]
 
-
 [sub_resource type="CircleShape2D" id=1]
 radius = 16.0
 
@@ -71,5 +70,11 @@ margin_bottom = 25.0
 custom_fonts/font = ExtResource( 5 )
 text = "object name!"
 align = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = -20.0
+margin_top = -108.0
+margin_right = 20.0
+margin_bottom = -68.0
 
 [connection signal="area_exited" from="interactable_zone" to="." method="_on_interactable_zone_area_exited"]
