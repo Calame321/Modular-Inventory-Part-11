@@ -13,7 +13,7 @@ func execute():
 	SignalManager.emit_signal( "upgrade_item" )
 
 # Check if the item is still usable after a change in the player's inventories.
-func _on_inventory_group_content_changed( groups ):
+func _on_inventory_group_content_changed( groups, _slot ):
 	if groups.has( "player" ):
 		can_use = InventoryManager.has_upgradable_items( "player" )
 		emit_signal( "can_use_changed", is_usable() )

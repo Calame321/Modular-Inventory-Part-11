@@ -67,7 +67,7 @@ func get_action():
 	}
 
 # When the content of the player's inventories change, emit a signal to notifiy if it's usable.
-func _on_inventory_group_content_changed( groups ):
+func _on_inventory_group_content_changed( groups, _slot ):
 	if groups.has( "player" ):
 		emit_signal( "can_use_changed", is_usable() )
 

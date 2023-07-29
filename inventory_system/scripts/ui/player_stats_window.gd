@@ -10,10 +10,10 @@ export( Resource ) var player_data
 
 func _ready():
 	player_data.equipment.connect( "content_changed", self, "_on_content_changed" )
-	_on_content_changed( player_data.equipment.groups )
+	_on_content_changed( player_data.equipment.groups, null )
 
 # Update the stats when items in the equipmenet group changes.
-func _on_content_changed( groups ):
+func _on_content_changed( groups, _slot ):
 	if groups.find( "equipment" ):
 		lbl_str.text = str( player_data.get_stat( Game_Enums.STAT.STRENGTH ) )
 		lbl_dex.text = str( player_data.get_stat( Game_Enums.STAT.DEXTERITY ) )

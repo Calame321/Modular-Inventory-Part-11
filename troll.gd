@@ -10,7 +10,7 @@ var current_interactable
 func _ready():
 	SignalManager.connect( "item_dropped", self, "_on_item_dropped" )
 	player_data.connect( "changed", self, "_on_data_changed" )
-	player_data.hotbar.connect( "selected_item_changed", self, "_on_selected_item_changed" )
+	SignalManager.connect( "inventory_group_content_changed", self, "_on_inventory_group_content_changed" )
 	_on_data_changed()
 
 func _physics_process(_delta):
@@ -53,6 +53,8 @@ func _on_item_dropped( item ):
 func _on_data_changed():
 	global_position = player_data.global_position
 
-func _on_selected_item_changed( item : Item ):
-	$TextureRect.texture = ResourceManager.sprites[ item.id ] if item else null
+func _on_inventory_group_content_changed( groups, slot ):
+	if "equipment" in groups and slot:
+		# Can check the slot equipment type here if needed.
+		$TextureRect.texture = ResourceManager.sprites[ slot.item.id ] if slot.item else null
 

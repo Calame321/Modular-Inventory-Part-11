@@ -3,7 +3,7 @@ class_name Inventory extends Resource
 ## Signals ##
 
 # Emitted when an item is added, removed or has changed.
-signal content_changed()
+signal content_changed( groups, slot )
 
 # Emmited if the size is changed. ( not really used for now )
 signal size_changed()
@@ -49,19 +49,22 @@ func get_new_slot( s ):
 # Place an item in the first available stack or slot.
 # Returns what remain if it can't place it.
 func add_item( item ):
+	var changed_slot = null
 	# Place items that can stack on unfinished stack first
 	if item.stack_size > 1:
 		for s in slots:
 			if s.item and s.item.id == item.id and s.item.quantity < s.item.stack_size:
 				item = s.put_item( item )
+				changed_slot = s
 				if item == null: break
 	# Place item on first available slot
 	if item:
 		for s in slots:
 			if s.try_put_item( item ):
 				item = s.put_item( item )
+				changed_slot = s
 				if not item: break
-	content_has_changed()
+	content_has_changed( changed_slot )
 	return item
 
 # Try to place the stakable items in the array, if they can be placed they are removed if the stack is empty.
@@ -117,15 +120,14 @@ func remove_item_quantity( id, quantity ):
 				slots[ s ].item = null
 			else:
 				slots[ s ].item.quantity -= quantity
-				content_has_changed()
 				return 0
-	content_has_changed()
+			content_has_changed( slots[ s ] )
 	return quantity
 
 # Check for upgradable items and emit the "content_changed" signal.
-func content_has_changed():
+func content_has_changed( slot ):
 	set_upgradable_items()
-	emit_signal( "content_changed", groups )
+	emit_signal( "content_changed", groups, slot )
 
 # Pack the inventory data in a Dictionary.
 func get_data() -> Dictionary:
@@ -145,8 +147,8 @@ func set_data( data ):
 ## Signal Connexions ##
 
 # When an item from a slot change, the content has changed.
-func _on_item_changed():
-	content_has_changed()
+func _on_item_changed( slot ):
+	content_has_changed( slot )
 
 
 

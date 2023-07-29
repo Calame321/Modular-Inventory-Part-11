@@ -10,6 +10,6 @@ func set_slot( value ):
 		placeholder.texture = ResourceManager.get_placeholder( slot.type )
 
 # When the item change, update the placeholder.
-func _on_item_changed():
-	._on_item_changed()
+func _on_item_changed( slot ):
+	._on_item_changed( slot )
 	placeholder.visible = slot.item == null

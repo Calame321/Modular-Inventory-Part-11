@@ -1,7 +1,7 @@
 class_name Inventory_Slot extends Resource
 
 # Emited when the item has changed.
-signal item_changed()
+signal item_changed( item )
 
 var item : Item
 var groups : Array = []
@@ -21,7 +21,7 @@ func set_item( new_item ):
 	unset_old_item()
 	item = new_item
 	set_new_item()
-	emit_signal( "item_changed" )
+	emit_signal( "item_changed", self )
 
 # Remove the slot from the node and disconnect signals.
 func unset_old_item():
@@ -77,7 +77,7 @@ func has_both_item( new_item ):
 	if can_stack( new_item ):
 		var remainder = item.add_item_quantity( new_item.quantity )
 		new_item.quantity = remainder
-		emit_signal( "item_changed" )
+		emit_signal( "item_changed", item )
 	# swap the item in hand with the one in the slot
 	else:
 		var temp_item = item

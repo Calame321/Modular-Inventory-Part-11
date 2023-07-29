@@ -187,8 +187,8 @@ func _on_gui_input_slot( event : InputEvent, slot_node : Inventory_Slot_Node ):
 
 # Emit a signal when the content of an inventory has changed.
 # Ex: Enable the craft button if the crafting inventories has the required items.
-func _on_inventory_content_changed( groups ):
-	SignalManager.emit_signal( "inventory_group_content_changed", groups )
+func _on_inventory_content_changed( groups, slot ):
+	SignalManager.emit_signal( "inventory_group_content_changed", groups, slot )
 
 # Upgrade an item on the player.
 # Normal -> Magic -> Rare.

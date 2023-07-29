@@ -23,7 +23,7 @@ func _on_item_container_visibility_changed():
 	emit_signal( "mouse_exited" )
 
 # When the item change, update the visual.
-func _on_item_changed():
+func _on_item_changed( _slot ):
 	for c in item_container.get_children():
 		c.queue_free()
 	
